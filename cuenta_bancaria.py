@@ -2,10 +2,9 @@ class CuentaBancaria:
 
     usuarios = []
 
-    def __init__(self, name, tasa_interes, balance=0): 
+    def __init__(self, tasa_interes, balance=0): 
         self.tasa_interes = tasa_interes
         self.balance = balance
-        self.name = name
         CuentaBancaria.usuarios.append(self)
     
     def deposito(self, amount):
@@ -31,11 +30,12 @@ class CuentaBancaria:
     
     @classmethod
     def imprimir_todas_las_instancias(cls):
-        for i in cls.usuarios:
-            print(f'Nombre: {i.name} - Balance: {i.balance} - Tasa de interés: {i.tasa_interes}')
+        for x,i in enumerate(cls.usuarios):
+            y = x+1
+            print(f' Cuenta {y} - Balance: {i.balance} - Tasa de interés: {i.tasa_interes}')
 
-richard = CuentaBancaria('richard', 0.05)
-tote = CuentaBancaria('tote',0.02)
+richard = CuentaBancaria(0.05)
+tote = CuentaBancaria(0.02)
 
 
 

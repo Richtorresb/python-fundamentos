@@ -1,8 +1,6 @@
 class Underscore:
     def map(self, iterable, callback):
-        new_list = []
-        for i in iterable:
-            new_list.append(callback(i))
+        new_list = [callback(i) for i in iterable]
         print(new_list)
         return new_list
 
@@ -13,18 +11,14 @@ class Underscore:
                 return i
 
     def filter(self, iterable, callback):
-        new_list = []
-        for i in iterable:
-            if callback(i) == True:
-                new_list.append(i)
+        new_list = [i for i in iterable if callback(i)]
         print(new_list)
         return new_list
+
     def reject(self, iterable, callback):
-        new_list = []
-        for i in iterable:
-            if callback(i) == False:
-                new_list.append(i)
+        new_list = [i for i in iterable if callback(i) == False ]
         print(new_list)
+        return new_list
 
 # acabas de crear una biblioteca con 4 métodos!
 
